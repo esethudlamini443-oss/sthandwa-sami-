@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Valentine 💙</title>
+
+<style>
+body {
+    background: #ffe6f0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 30px;
+}
+
+h1 {
+    color: #ff4d88;
+    font-size: 36px;
+}
+
+#teddy-container {
+    position: relative;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+#teddy {
+    width: 260px;
+    transition: all 0.5s ease;
+    filter: brightness(1);
+}
+
+/* Jump animation */
+@keyframes jump {
+    0% { transform: translateY(0); }
+    25% { transform: translateY(-30px); }
+    50% { transform: translateY(0); }
+    75% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+.jump {
+    animation: jump 0.8s ease;
+}
+
+/* Name on Teddy */
+#name-tag {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #66ccff;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.buttons {
+    margin-top: 25px;
+}
+
+button {
+    font-size: 20px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+#yesBtn {
+    background: #66ccff;
+    color: white;
+}
+
+#noBtn {
+    background: #ff8080;
+    color: white;
+    position: absolute;
+}
+
+#message {
+    display: none;
+    margin-top: 35px;
+    font-size: 20px;
+    color: #444;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Please Be My Valentine 💙</h1>
+
+<div id="teddy-container">
+
+    <!-- Fluffy brown teddy bear -->
+    <img id="teddy" src="https://i.imgur.com/wb4Pf3Z.png" alt="Teddy Bear">
+
+    <!-- CHANGE HIS NAME -->
+    <div id="name-tag">YAMKELA 💙</div>
+
+</div>
+
+<!-- MUSIC -->
+<audio id="bgMusic" loop>
+    <source src="https://drive.google.com/file/d/11V95CRiR2bh7kkIx43LyG9by6ghmFrgS/uc?export=download" type="audio/mpeg">
+</audio>
+
+<div class="buttons">
+    <button id="yesBtn" onclick="sayYes()">YES 💖</button>
+    <button id="noBtn" onmouseover="runAway()">NO 😢</button>
+</div>
+
+<div id="message">
+    <h2>💌 My Message For You 💌</h2>
+
+    <p>
+    <!-- YOUR MESSAGE HERE -->
+    My heart ❤️. I gotta be honest with you this is my first valentine ngikwi relationship and I'm kinda nervous 🥹. I'm so happy to be experiencing so many firsts with you 🥰 and I pray and hope that you be my last too 🙏❤️. I wanted to tell you how much I appreciate you, your presence, your kindness, your handsomeness and your sweetness (in both the figurative and literal way 😉🤫). You are such a blessing and I want to celebrate our love every second of everyday until forever ♾️. You came into my life unexpectedly and you took over in my heart ❤️. You became my source of happiness, peace and laughter. You are literally my best friend (... second best friend 🥹 but don't worry you are my one and only life partner). You took me to a place where I didn't think I'd ever be in again. You made me bubbly and lively again and for that I'm so very thankful to you ❤️. Your hugs are like a blanket of warmth and you truly feel like home 😩😍. Ngyabonga for loving me Gcwanini, ngyabonga for making me happy again and most importantly thank you for being here whenever I need you. I promise to give you my outmost best even in tough times 🥹. I love you more than you'll ever know 🥹❤️. Have the happiest valentine ❤️ ( ungakhohlwa ukungbeke kuNkulunkulu at church 🙏❤️).
+    </p>
+</div>
+
+<script>
+function runAway() {
+    const noBtn = document.getElementById("noBtn");
+
+    const x = Math.random() * (window.innerWidth - 120);
+    const y = Math.random() * (window.innerHeight - 120);
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+
+    // Sad teddy
+    document.getElementById("teddy").src = "https://i.imgur.com/1dO4l2n.png";
+}
+
+function sayYes() {
+    const teddy = document.getElementById("teddy");
+    const music = document.getElementById("bgMusic");
+    const message = document.getElementById("message");
+
+    // Play music
+    music.play();
+
+    // Show message
+    message.style.display = "block";
+
+    // Add jump animation
+    teddy.classList.add("jump");
+
+    // Change teddy to excited GIF during jump
+    teddy.src = "https://i.imgur.com/0h6N9ZJ.gif";
+
+    // After jump, switch back to brown teddy
+    setTimeout(() => {
+        teddy.classList.remove("jump");
+        teddy.src = "https://i.imgur.com/wb4Pf3Z.png";
+    }, 800); // match duration of jump animation
+}
+</script>
+
+</body>
+</html>
